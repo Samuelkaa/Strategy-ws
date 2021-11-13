@@ -41,6 +41,8 @@ public abstract class Tile : MonoBehaviour
                 if (UnitManager.Instance.SelectedHero != null)
                 {
                     UnitManager.Instance.SetSelectedEnemy((BaseEnemy)OccupiedUnit);
+                    int randomMoney = Random.Range(5, 10);
+                    MoneyScript.Instance.AddMoney(randomMoney);
                     Destroy(UnitManager.Instance.SelectedEnemy.gameObject);
                     UnitManager.Instance.SetSelectedHero(null);
                 }

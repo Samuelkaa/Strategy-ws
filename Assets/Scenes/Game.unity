@@ -553,11 +553,9 @@ MonoBehaviour:
   _heroInfoObject: {fileID: 702210498}
   _tileInfoObject: {fileID: 1758191307}
   _tileUnitObject: {fileID: 1380646228}
-  _moneyObject: {fileID: 1024871456}
   _tileSprite: {fileID: 136702390}
   _heroSprite: {fileID: 994595573}
   _tileUnitSprite: {fileID: 461634558}
-  _moneyAmount: {fileID: 5042982}
 --- !u!4 &549137506
 Transform:
   m_ObjectHideFlags: 0
@@ -849,13 +847,14 @@ GameObject:
   - component: {fileID: 1024871457}
   - component: {fileID: 1024871459}
   - component: {fileID: 1024871458}
+  - component: {fileID: 1024871460}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1024871457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -914,6 +913,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024871456}
   m_CullTransparentMesh: 1
+--- !u!114 &1024871460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024871456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f712f8491f54649b8b833ec5684aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyObject: {fileID: 1024871456}
+  _moneyAmount: {fileID: 5042982}
 --- !u!1 &1060266037
 GameObject:
   m_ObjectHideFlags: 0
