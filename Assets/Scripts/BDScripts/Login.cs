@@ -1,17 +1,17 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using MySql.Data.MySqlClient;
-using System.Data;
 
 public class Login : BDConnect
 {
+    public static new Login Instance;
+
     [SerializeField] private InputField _login;
     [SerializeField] private InputField _password;
 
-    public string authorizedLogin;
-    public string authorizedPassword;
-
-    public static Login Instance;
+    public JSONObject accountInfo;
 
     private void Awake()
     {
@@ -20,34 +20,25 @@ public class Login : BDConnect
 
     public void LoginButtonClick()
     {
-        if (_login.text == "" || _password.text == "")
+        StartCoroutine(LoginEnum());
+    }
+
+    public IEnumerator LoginEnum()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("login", _login.text);
+        form.AddField("password", _password.text);
+
+        UnityWebRequest www = UnityWebRequest.Post(serverip + "strategy/database/login.php", form);
+        yield return www.SendWebRequest();
+
+
+        if (www.downloadHandler.text != "Аккаунт не найден")
         {
-            Debug.Log("Введены не все данные");
-            return;
+            SceneManager.LoadScene("Game");
         }
 
-        BDConnect bd = new BDConnect();
-
-        DataTable dataTable = new DataTable();
-
-        MySqlDataAdapter adapter = new MySqlDataAdapter();
-        MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @userLogin AND `password` = @userPassword", bd.ConnectionStatus());
-        command.Parameters.Add("@userLogin", MySqlDbType.VarChar).Value = _login.text;
-        command.Parameters.Add("@userPassword", MySqlDbType.VarChar).Value = _password.text;
-
-        adapter.SelectCommand = command;
-        adapter.Fill(dataTable);
-
-        if (dataTable.Rows.Count > 0)
-        {
-            Debug.Log("Аккаунт найден");
-            authorizedLogin = _login.text;
-            authorizedPassword = _password.text;
-            MenuManager.Instance.ChangeState(MenuState.StartGame);
-        }
-        else
-        {
-            Debug.Log("Неверное сочетание логина и пароля");
-        }
+        accountInfo = new JSONObject(www.downloadHandler.text);
+        Debug.Log(accountInfo.ToString());
     }
 }

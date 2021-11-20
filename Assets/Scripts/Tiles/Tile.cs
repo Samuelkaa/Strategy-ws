@@ -42,17 +42,19 @@ public abstract class Tile : MonoBehaviour
                 {
                     UnitManager.Instance.SetSelectedEnemy((BaseEnemy)OccupiedUnit);
                     int randomMoney = Random.Range(5, 10);
-                    MoneyScript.Instance.AddMoney(randomMoney);
                     Destroy(UnitManager.Instance.SelectedEnemy.gameObject);
+                    SetUnit(UnitManager.Instance.SelectedHero);
+                    InterfaceManager.Instance.SetTileInfo(this);
                     UnitManager.Instance.SetSelectedHero(null);
                 }
             }
         }
         else
         {
-            if (UnitManager.Instance.SelectedHero != null)
+            if (UnitManager.Instance.SelectedHero != null && _isWalkable)
             {
                 SetUnit(UnitManager.Instance.SelectedHero);
+                InterfaceManager.Instance.SetTileInfo(this);
                 UnitManager.Instance.SetSelectedHero(null);
             }
         }

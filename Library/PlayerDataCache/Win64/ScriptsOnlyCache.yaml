@@ -1,9 +1,20 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BDConnect
+    - GameManager
+    - GrassTile
+    - GridManager
     - HeroKnight
+    - InterfaceManager
+    - Login
+    - MenuManager
     - MobZombie
+    - MoneyScript
+    - MountainTile
+    - Registration
     - ScriptableUnit
+    - UnitManager
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -26,6 +37,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
@@ -33,6 +46,69 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/Game.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1542}
+    - Class: 114
+      Script: {instanceID: 1606}
+    - Class: 114
+      Script: {instanceID: 1964}
+    - Class: 114
+      Script: {instanceID: 2212}
+    - Class: 114
+      Script: {instanceID: 2238}
+    - Class: 114
+      Script: {instanceID: 2296}
+    - Class: 114
+      Script: {instanceID: 2664}
+    - Class: 114
+      Script: {instanceID: 2828}
+    - Class: 114
+      Script: {instanceID: 3050}
+    - Class: 114
+      Script: {instanceID: 3296}
+    - Class: 114
+      Script: {instanceID: 4332}
+    - Class: 114
+      Script: {instanceID: 4562}
+    - Class: 114
+      Script: {instanceID: 5600}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Main Menu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -61,19 +137,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2238}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2294}
     - Class: 114
-      Script: {instanceID: 2662}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 3048}
+      Script: {instanceID: 2664}
     - Class: 114
-      Script: {instanceID: 3108}
+      Script: {instanceID: 2828}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3050}
     - Class: 114
-      Script: {instanceID: 3742}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 5252}
+      Script: {instanceID: 3110}
+    - Class: 114
+      Script: {instanceID: 3296}
+    - Class: 114
+      Script: {instanceID: 3410}
+    - Class: 114
+      Script: {instanceID: 3564}
+    - Class: 114
+      Script: {instanceID: 3746}
+    - Class: 114
+      Script: {instanceID: 3764}
+    - Class: 114
+      Script: {instanceID: 5256}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -219,6 +307,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: b6829527089da404c7b155ce836e740b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Login
   - hash:
       serializedVersion: 2
       Hash: 486250ad8e60e6ed3fdf77c58c39b77a
@@ -419,6 +513,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: 8b560b9c3009501e69a45014472b926a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Registration
+  - hash:
+      serializedVersion: 2
       Hash: eeb54b536ca285faab8fe8752cdcfda5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -443,7 +543,7 @@ ScriptsOnlyBuild:
     className: ScriptableUnit
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 1eadcfb291a1711fd3f01ca7283f110c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuManager
@@ -563,12 +663,6 @@ ScriptsOnlyBuild:
     className: GrassTile
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: test
-  - hash:
-      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -585,6 +679,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
     className: SpriteResolver
+  - hash:
+      serializedVersion: 2
+      Hash: 8a8fb600a8a9cbfd924920800916d22a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoneyScript
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -738,4 +838,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
+  - Assets/Scenes/Game.unity
   playerPath: C:/StrategyBuild/Strategy ws.exe

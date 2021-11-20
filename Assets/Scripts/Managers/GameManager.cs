@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeState(GameState.GenerateGrid);
-        Debug.Log(Login.Instance.authorizedLogin);
     }
 
     public void ChangeState(GameState newState)

@@ -424,8 +424,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 814242410}
-        m_TargetAssemblyTypeName: Register, Assembly-CSharp
-        m_MethodName: RegisterButtonClick
+        m_TargetAssemblyTypeName: Registration, Assembly-CSharp
+        m_MethodName: RegButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -907,6 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c10ec5e7200b4a43a9cb831a582f880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverip: http://89.108.77.208/
 --- !u!1 &220230671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,8 +2293,8 @@ Canvas:
   m_GameObject: {fileID: 1082378858}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1711289033}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4169,6 +4170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2974d980c51448742bcfa1fbb1d072eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverip: http://89.108.77.208/
   _login: {fileID: 699407187}
   _password: {fileID: 1330116173}
 --- !u!1 &1977616413
