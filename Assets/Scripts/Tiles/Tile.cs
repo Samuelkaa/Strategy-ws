@@ -17,7 +17,24 @@ public abstract class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        _highlight.gameObject.SetActive(true);
+        if (UnitManager.Instance.SelectedHero != null)
+        {
+            if (Vector2.Distance(UnitManager.Instance.SelectedHero.transform.position, transform.position) <= 5 && _isWalkable)
+            {
+                _highlight.gameObject.SetActive(true);
+                _highlight.color = new Color(1, 1, 1, 0.35f);
+            }
+            else
+            {
+                _highlight.gameObject.SetActive(true);
+                _highlight.color = new Color(1, 0, 0, 0.35f);
+            }
+        }
+        else
+        {
+            _highlight.gameObject.SetActive(true);
+            _highlight.color = new Color(1, 1, 1, 0.35f);
+        }
         InterfaceManager.Instance.SetTileInfo(this);
     }
 
@@ -41,11 +58,14 @@ public abstract class Tile : MonoBehaviour
                 if (UnitManager.Instance.SelectedHero != null)
                 {
                     UnitManager.Instance.SetSelectedEnemy((BaseEnemy)OccupiedUnit);
-                    StartCoroutine(MoneyScript.Instance.AddMoneyOnKill());
-                    Destroy(UnitManager.Instance.SelectedEnemy.gameObject);
-                    SetUnit(UnitManager.Instance.SelectedHero);
-                    InterfaceManager.Instance.SetTileInfo(this);
-                    UnitManager.Instance.SetSelectedHero(null);
+                    if (Vector2.Distance(UnitManager.Instance.SelectedHero.transform.position, UnitManager.Instance.SelectedEnemy.transform.position) <= 5)
+                    {
+                        StartCoroutine(MoneyScript.Instance.AddMoneyOnKill());
+                        Destroy(UnitManager.Instance.SelectedEnemy.gameObject);
+                        SetUnit(UnitManager.Instance.SelectedHero);
+                        InterfaceManager.Instance.SetTileInfo(this);
+                        UnitManager.Instance.SetSelectedHero(null);
+                    }
                 }
             }
         }
@@ -53,9 +73,12 @@ public abstract class Tile : MonoBehaviour
         {
             if (UnitManager.Instance.SelectedHero != null && _isWalkable)
             {
-                SetUnit(UnitManager.Instance.SelectedHero);
-                InterfaceManager.Instance.SetTileInfo(this);
-                UnitManager.Instance.SetSelectedHero(null);
+                if (Vector2.Distance(UnitManager.Instance.SelectedHero.transform.position, transform.position) <= 5)
+                {
+                    SetUnit(UnitManager.Instance.SelectedHero);
+                    InterfaceManager.Instance.SetTileInfo(this);
+                    UnitManager.Instance.SetSelectedHero(null);
+                }
             }
         }
     }
@@ -67,5 +90,10 @@ public abstract class Tile : MonoBehaviour
         unit.transform.position = transform.position;
         OccupiedUnit = unit;
         unit.OccupiedTile = this;
+    }
+
+    public void HighlightNearTiles()
+    {
+
     }
 }

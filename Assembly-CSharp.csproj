@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Units\Enemies\MobZombie.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Managers\UnitManager.cs" />
+    <Compile Include="Assets\Scripts\BDScripts\AccountInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Changelog.txt" />
