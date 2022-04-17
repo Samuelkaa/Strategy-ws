@@ -20,14 +20,14 @@ public class Registration : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("login", _login.text);
         form.AddField("password", _password.text);
-        form.AddField("nickname", _name.text);
+        form.AddField("name", _name.text);
 
         UnityWebRequest www = UnityWebRequest.Post(BDConnect.Instance.serverip + "strategy/database/registration.php", form);
         yield return www.SendWebRequest();
 
         if (www.error != null)
         {
-            Debug.Log("Произошла ошибченция " + www.error);
+            Debug.Log("Ошибка " + www.error);
             yield break;
         }
         else

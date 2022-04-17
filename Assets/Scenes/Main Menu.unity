@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c10ec5e7200b4a43a9cb831a582f880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverip: http://89.108.77.208/
+  serverip: http://localhost/
 --- !u!1 &220230671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,7 +4170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2974d980c51448742bcfa1fbb1d072eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverip: http://89.108.77.208/
+  serverip: http://localhost/
   _login: {fileID: 699407187}
   _password: {fileID: 1330116173}
 --- !u!1 &1977616413

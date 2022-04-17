@@ -9,7 +9,7 @@ public class BaseHero : BaseUnit
 
     private void Start()
     {
-        nickname = Login.Instance.accountInfo.GetField("nickname").str;
+        nickname = Login.Instance.accountInfo.GetField("name").str;
         UnitName = nickname;
     }
 }
