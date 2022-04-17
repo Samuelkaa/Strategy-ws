@@ -12,7 +12,6 @@ public class Login : BDConnect
     [SerializeField] private InputField _password;
 
     public JSONObject accountInfo;
-    private ServerJSON serverJSON;
 
     private void Awake()
     {
@@ -37,13 +36,6 @@ public class Login : BDConnect
         if (www.downloadHandler.text != "Account not found")
         {
             SceneManager.LoadScene("Game");
-            
-            serverJSON = JsonUtility.FromJson<ServerJSON>(www.downloadHandler.text);
-
-            Debug.Log(serverJSON.data.id);
-            Debug.Log(serverJSON.data.login);
-            Debug.Log(serverJSON.data.password);
-            Debug.Log(serverJSON.data.nickname);
 
             accountInfo = new JSONObject(www.downloadHandler.text);
         }
