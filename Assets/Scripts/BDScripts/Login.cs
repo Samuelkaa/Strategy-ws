@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Login : BDConnect
 {
-    public static new Login Instance;
+    public static Login Instance;
 
     [SerializeField] private InputField _login;
     [SerializeField] private InputField _password;

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class Registration : MonoBehaviour
+public class Registration : BDConnect
 {
 
     [SerializeField] private InputField _login;
@@ -22,7 +22,7 @@ public class Registration : MonoBehaviour
         form.AddField("password", _password.text);
         form.AddField("name", _name.text);
 
-        UnityWebRequest www = UnityWebRequest.Post(BDConnect.Instance.serverip + "strategy/database/registration.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(serverip + "strategy/database/registration.php", form);
         yield return www.SendWebRequest();
 
         if (www.error != null)

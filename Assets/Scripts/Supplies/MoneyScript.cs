@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class MoneyScript : MonoBehaviour
+public class MoneyScript : BDConnect
 {
     public static MoneyScript Instance;
 
@@ -26,7 +26,7 @@ public class MoneyScript : MonoBehaviour
         form.AddField("accountID", Login.Instance.accountInfo.GetField("id").str);
         form.AddField("moneyCount", Random.Range(5, 10));
 
-        UnityWebRequest www = UnityWebRequest.Post(BDConnect.Instance.serverip + "strategy/supplies/moneyAdd.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(serverip + "strategy/supplies/moneyAdd.php", form);
         yield return www.SendWebRequest();
 
         StartCoroutine(GetMoneyAmount());
@@ -39,7 +39,7 @@ public class MoneyScript : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("accountID", Login.Instance.accountInfo.GetField("id").str);
 
-        UnityWebRequest www = UnityWebRequest.Post(BDConnect.Instance.serverip + "strategy/supplies/getMoney.php", form);
+        UnityWebRequest www = UnityWebRequest.Post(serverip + "strategy/supplies/getMoney.php", form);
         yield return www.SendWebRequest();
 
         _moneyAmount.text = www.downloadHandler.text;
